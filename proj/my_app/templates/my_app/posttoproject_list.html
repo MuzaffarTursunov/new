@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+{%load static%}
+<!--
+	Lamoda by TEMPLATE STOCK
+	templatestock.co @templatestock
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+
+
+<html lang="en-gb" class="no-js">
+  <head>
+    <meta charset="utf-8">
+	<title>maxx.uz</title>
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">		
+		
+	<!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      
+
+     <!--styles -->
+    <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.css'%}" rel="stylesheet">
+    <link href="{% static 'js/owl-carousel/owl.carousel.css'%}" rel="stylesheet">
+    <link href="{% static 'js/owl-carousel/owl.theme.css'%}" rel="stylesheet">
+    <link href="{% static 'js/owl-carousel/owl.transitions.css'%}" rel="stylesheet">
+    <link href="{% static 'css/magnific-popup.css'%}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/etlinefont.css'%}">
+    <link href="{% static 'css/style.css'%}" type="text/css"  rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="{%static 'css/animate.min.css'%}">
+    <script type="text/javascript" src="{% static 'js/wow.js'%}"></script>
+    <script type="text/javascript">
+        new WOW().init();
+    </script>
+
+
+   <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+        <![endif]-->
+    
+	<body    >
+ 
+
+  <!--Start Page loader -->
+  <div id="pageloader">   
+        <div class="loader">
+          <img src="{%static 'images/progress.gif'%}" alt='loader' />
+        </div>
+   </div>
+   <!--End Page loader -->
+   
+      
+   <!--Start Navigation-->
+		<header id="header" style="background-color: rgba(0,0,0,.95);">
+				<div class="container" >
+					<div class="row">
+						<div class="col-sm-12">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="fa fa-bars"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+                            <!--Start Logo -->
+							<div class="logo-nav">
+								<a href="{%url 'index'%}">
+									<img src="{%static 'images/logo.png'%}" style='width:120px;height:90px;' alt="Company logo" />
+								</a>
+							</div>
+                            <!--End Logo -->
+							<div class="clear-toggle"></div>
+							<div id="main-menu" class="collapse scroll navbar-right " >
+								<ul class="nav">
+                                    {%if user.is_authenticated%}
+									<li class="active"> <a href="{%url 'index'%}">Home</a> </li>
+									<li > <a href="{%url 'my_app:project_list'%}">Project</a> </li>
+									
+									<li> <a href="#about">About</a> </li>
+                                    
+                                    <li> <a href="#history">History</a> </li>
+                                    
+                                     <li> <a href="#team">Team</a> </li>
+                                   
+								    <li> <a href="#services">Services</a> </li>
+																		
+									<li> <a href="{%url 'my_app:postproject_list'%}">Blog</a></li>
+                                    
+                                    <li> <a href="#testimonials">Testimonials</a></li>                                    
+									
+                                    <li> <a href="{%url 'logout'%}">Log Out</a> </li>
+                                    
+                                   
+
+                                    {%else%}
+                                    <li class="active"> <a href="{%url 'index'%}">Home</a> </li>
+									<li> <a href="#about">About</a> </li>
+                                    <li > <a href="{%url 'my_app:project_list'%}">Project</a> </li>
+                                    <li> <a href="#history">History</a> </li>                                    
+                                    <li> <a href="#services">Services</a> </li>
+                                    <li> <a href="{%url 'my_app:login'%}">Log In</a> </li>
+                                    <li> <a href="{%url 'my_app:signup'%}"><span class="glyphicon glyphicon-user"></span></a></li>
+                                    {%endif%}	
+								</ul>
+							</div><!-- end main-menu -->
+						</div>
+					</div>
+				</div>
+			</header>
+<br><br><br><br><br><br>
+<section  id="skills" class="section parallax">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+               
+        <div class="title-box text-center white">
+           <h2 class="title">TEXNIK QOBILIYATI</h2>
+        </div>
+         
+            <!--Skill #1-->
+           <div class="col-sm-3 col-md-3 col-lg-3 pie-chart-main">
+               <span class="pie-chart " data-percent="95">
+                   <span class="percent"></span>
+               </span>
+               <h4>Photoshop</h4>
+               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+           </div>
+           
+           <!--Skill #2-->
+           <div class="col-sm-3 col-md-3 col-lg-3 pie-chart-main">
+               <span class="pie-chart" data-percent="89">
+                   <span class="percent"></span>
+               </span>
+               <h4>Wordpress</h4>
+               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+           </div>
+           
+           <!--Skill #3-->
+           <div class="col-sm-3 col-md-3 col-lg-3 pie-chart-main">
+               <span class="pie-chart " data-percent="75">
+                   <span class="percent"></span>
+               </span>
+               <h4>Grafika</h4>
+               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+           </div>
+           
+           <!--Skill #4-->
+           <div class="col-sm-3 col-md-3 col-lg-3 pie-chart-main">
+               <span class="pie-chart" data-percent="99">
+                   <span class="percent"></span>
+               </span>
+               <h4>Rivojlanish</h4>
+               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+           </div>
+    
+       
+      </div> <!-- /.row-->
+    </div> <!-- /.container-->
+    </section id="blog"> 
+    <section>
+            <br><br>
+            <div class="container">
+            <div class="row">
+                <div class="title-box text-center black">
+                    <h2 class="title">Blogs</h2>
+                </div>
+                  
+                {%for project in posttoproject_list%}
+                <div class="col-sm-6 col-md-4">
+                  <div class="thumbnail">
+                    <img src="{{project.author_img.url}}" alt="">
+                    <div class="caption">
+                      <h3>{{project.title}}</h3>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis animi voluptatibus nihil nobis soluta inventore vel a natus quibusdam laboriosam, delectus beatae tempora. Aut at, modi cum illum laboriosam nam!</p>
+                      <h5>Commentlar soni: {{project.comments.count}}</h5>
+                      <p><a href="{%url 'my_app:postproject_detail' pk=project.pk%}" class="btn btn-primary" role="button">Read more</a> </p>
+                    </div>
+                  </div>
+                </div>
+                {%endfor%}
+              </div>
+            </div>
+    </section>
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <!--Start copyright-->
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="copyright"><p>Copyright © 2021 All Rights reserved : <a href="#">Created by Muzaffar</a>
+                          </p></div>
+                        </div>
+                        <!--End copyright-->
+                        
+                        <!--start social icons-->
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="social-icons">
+                                <ul>
+                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                 <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
+                                 <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                 <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                </ul>
+                             </div>
+                        </div>
+                        <!--End social icons-->
+                    </div> <!-- /.row-->
+                </div> <!-- /.container-->
+            </footer>
+            <!--End Footer-->
+         
+            <a href="#" class="scrollup"> <i class="fa fa-chevron-up"> </i> </a>
+         
+             <!--Plugins-->
+             <script type="text/javascript" src="{% static 'js/jquery-1.11.1.min.js'%}"></script>
+             <script type="text/javascript" src="{% static 'js/bootstrap.min.js'%}"></script> 
+             <script type="text/javascript" src="{% static 'js/owl-carousel/owl.carousel.js'%}"></script>
+             <script type="text/javascript" src="{% static 'js/jquery.flexslider-min.js'%}"></script>
+             <script type="text/javascript" src="{% static 'js/jquery.magnific-popup.min.js'%}"></script>
+             <script type="text/javascript" src="{% static 'js/easing.js'%}"></script>
+             <script type="text/javascript" src="{% static 'js/jquery.easypiechart.js'%}"></script>
+             <script type="text/javascript" src="{% static 'js/jquery.appear.js'%}"></script>
+             <script type="text/javascript" src="{% static 'js/jquery.parallax-1.1.3.js'%}"></script>
+             <script type="text/javascript" src="{% static 'js/jquery.mixitup.min.js'%}"></script>
+             <script type="text/javascript" src="{% static 'js/custom.js'%}"></script>
+             
+             
+          </body>
+         </html>
+         
+         

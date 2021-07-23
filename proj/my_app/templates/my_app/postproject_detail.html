@@ -1,0 +1,333 @@
+<!Doctype html>
+{%load static%}
+
+
+
+<html lang="en-gb" class="no-js">
+  <head>
+    <meta charset="utf-8">
+	<title>Maxx.uz</title>
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">		
+		
+	<!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    	 
+
+     <!--styles -->
+     <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.css'%}" rel="stylesheet">
+    <link href="{% static 'js/owl-carousel/owl.carousel.css'%}" rel="stylesheet">
+    <link href="{% static 'js/owl-carousel/owl.theme.css'%}" rel="stylesheet">
+    <link href="{% static 'js/owl-carousel/owl.transitions.css'%}" rel="stylesheet">
+    <link href="{% static 'css/magnific-popup.css'%}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/etlinefont.css'%}">
+    <link href="{% static 'css/style.css'%}" type="text/css"  rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="{%static 'css/animate.min.css'%}">
+    <script type="text/javascript" src="{% static 'js/wow.js'%}"></script>
+    <script type="text/javascript">
+        new WOW().init();
+    </script>
+
+
+
+   <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+        <![endif]-->
+    
+	<body  data-spy="scroll" data-target="#main-menu">
+ 
+
+  <!--Start Page loader -->
+  <div id="pageloader">   
+        <div class="loader">
+          <img src="{% static 'images/progress.gif'%}" alt='loader' />
+        </div>
+   </div>
+   <!--End Page loader -->
+   
+      
+   <!--Start Navigation-->
+		<header id="header">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="fa fa-bars"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+                            <!--Start Logo -->
+							<div class="logo-nav">
+								<a href="index.html">
+									<img src="{% static 'images/logo.png'%}"style='width:120px;height:90px;' alt="Company logo" />
+								</a>
+							</div>
+                            <!--End Logo -->
+							<div class="clear-toggle"></div>
+							<div id="main-menu" class="collapse scroll navbar-right">
+								<ul class="nav">
+                                
+									<li class="active"> <a href="{% url 'index'%}">Home</a> </li>
+									
+									<li> <a href="../#about">About</a> </li>
+                                    
+                                    <li> <a href="../#history">History</a> </li>
+                                    
+                                    <li> <a href="../#works">Our Work</a> </li>
+                                    
+                                     <li> <a href="../#team">Team</a> </li>
+                                   
+								    <li> <a href="../#services">Services</a> </li>
+                                    
+                                    <li> <a href="../#testimonials">Testimonials</a></li>
+                                     
+									<li> <a href="../#contact">Contact</a> </li>
+									{% if user.is_authenticated%}
+									<li> <a href="{%url 'logout'%}">Log Out</a> </li>
+									{%else%}
+									<li> <a href="{%url 'login'%}">Login</a></li>
+									{%endif%}
+										
+								</ul>
+							</div><!-- end main-menu -->
+						</div>
+					</div>
+				</div>
+			</header>
+    <!--End Navigation-->
+
+		<!-- page-header -->
+		<section id="page-header" class="parallax">
+           <div class="overlay"></div>
+			<div class="container">
+				<h1>Blog</h1>
+                <!--Start Breadcrumb-->
+                <div class="breadcrumb">
+					<ul>
+						<li>
+							<a href="{%url 'index'%}">Home</a>
+						</li>
+						<li>
+							<a href="../#blog">Blog</a>
+						</li>
+						<li class="current">
+							<a href="{%url 'my_app:blog'%}">Blog Post</a>
+						</li>
+					</ul>
+				</div>
+                <!--End Breadcrumb-->
+			</div>
+		</section>
+		<!-- /page-header -->
+		
+		<!--Start blog -->
+		<section class="section">
+			<div class="container">
+				<div class="row">
+					<!-- Blog Post -->
+					<div class="col-md-8 col-sm-8">
+						<div class="post-content">	
+							<!-- Post Image -->
+							<div class="post-img">
+								<img src="{{post_detail.author_img.url}}" alt="">
+							</div>
+							<!-- /Post Image-->
+							
+							<!-- Post Meta-->
+							<div class="post-meta">
+                                <ul class="list-inline">
+                                  <li><a href="#"><i class="fa fa-calendar"></i>{{post_detail.published_date}}</a> </li>
+                                  <li><a href="#"><i class="fa fa-user"></i>by {{post_detail.author}}</a></li>
+                                  <li><a href="#"><i class="fa fa-comments"></i>{{post_detail.comments.count}} Comments</a> </li>
+                                </ul>
+							</div>
+							<!-- /Post Meta-->
+							
+							<!-- Post Description -->
+							<div class="post-description">							
+								<h3>{{post_detail.title}}</h3>
+								<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in molestie neque, eget posuere risus. In mauris orci, imperdiet quis hendrerit eget, dapibus sed nisi. Vivamus pretium, ante nec facilisis convallis, lorem lectus porta mi, ut pharetra purus augue a est. Integer pharetra tempus mauris, eu rutrum ante gravida ac. Duis aliquet elementum enim, sit amet congue neque faucibus id. Nunc sit amet massa aliquam, auctor libero eget, euismod augue. 
+								</p>
+                                
+                                <blockquote>{{post_detail.text}}</blockquote>
+                                
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, dolorum, fugiat, eligendi magni quibusdam iure cupiditate ex voluptas unde voluptatibus quos expedita autem qui vitae corrupti exercitationem facilis nihil atque!</p>
+                                
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, dolorum, fugiat, eligendi magni quibusdam iure cupiditate ex voluptas unde voluptatibus quos expedita autem qui vitae corrupti exercitationem facilis nihil atque!</p>
+							<a href="{%url 'my_app:add_comment_to_post' pk=post_detail.pk%}" class="btn btn-primary">Add Comment</a>
+							<a href="{%url 'my_app:post_edit' pk=post_detail.pk%}" class="btn btn-success">Post Edit</a>
+							<a href="{%url 'my_app:post_remove' pk=post_detail.pk%}" class="btn btn-danger">Delete</a>
+							</div>
+							<!-- /Post Description -->
+                          					
+							<!-- Comment list -->
+							<div class="comment-list">
+								<h3>All comments</h3>
+														
+								<ol>
+									{%for comment in post_detail.comments.all%}
+									<li class="comment">
+										<div class="single_comment first-comment">
+											<div class="comment-avatar">
+												<div class="avatar">
+													<img src="{% static 'images/blog/avatar1.jpg'%}" alt="">
+												</div>
+											</div>
+											<div class="comment-content">
+												<div class="comment-name"><a href="#">John Doe</a><span>-</span><a href="#" class="comment-reply">Reply</a></div>
+												<div class="comment-desc">{{comment.created_date}}</div>                                
+												<div class="comment-text">
+													<p>
+														{{comment.text}} 
+													</p>
+	
+												</div>
+											</div>
+										</div>
+									</li>
+									{%endfor%}																
+								</ol>
+							</div>
+							<!-- /comment List -->
+												
+							
+							<!-- /Comment Section -->											
+						</div>
+					</div>	
+					<!-- /Blog Post -->
+
+					<!-- Right Sidebar -->					
+				   <div class="col-md-4 col-sm-4">	
+                    
+                       <div class="widget widget-sidebar">
+							<div class="search-box">
+								<form>
+									<input type="search" class="form-control"  placeholder="Search">
+									<i class="fa fa-search"></i>
+								</form>
+							</div>
+						</div>
+                        
+				  <!--Start popular Post -->
+						<div class="widget-main">
+								<h4>Popular Post</h4>
+								<div class="sidebar-widget clearfix">	
+									<a href="#"><img src="{% static 'images/blog/blog1.jpg'%}" alt=""></a>
+									<p class="sidebar-widget-title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.  </a></p>
+									<p class="date">8 March, 2014</p>
+								</div>
+								<div class="sidebar-widget clearfix">	
+									<a href="#"><img src="{% static 'images/blog/blog2.jpg'%}" alt=""></a>
+									<p class="sidebar-widget-title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </a></p>
+									<p class="date">6 Apr, 2014</p>
+								</div>	
+								<div class="sidebar-widget clearfix">	
+									<a href="#"><img src="{% static 'images/blog/blog3.jpg'%}" alt=""></a>
+									<p class="sidebar-widget-title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </a></p>
+									<p class="date">22 May, 2014</p>
+								</div>	
+						</div>	
+						<!-- / popular Post -->
+						
+                        <!--start post categories-->
+                        <div class="widget-main">
+                             <h4>Top Categories</h4>
+                            <div  class="post-categories">
+                                <ul>
+                                <li><a href="#">Photography</a></li>
+                                <li><a href="#">WordPress</a></li>
+                                <li><a href="#">Web Design</a></li>
+                                <li><a href="#">Video</a></li>
+                                <li><a href="#">Photography</a></li>
+                               </ul>
+                             </div>
+                        </div>
+                        <!--/ post categories-->
+                    
+						<!-- Text -->
+						<div class="widget-main">	
+							<h4>Text Widget </h4>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in molestie neque, eget posuere risus. In mauris orci, imperdiet quis hendrerit eget, dapibus sed nisi.. 
+							</p>
+						</div>
+						<!-- /Text -->
+						
+
+						<!-- Tags -->
+						<div class="widget-main">
+						   <h4>Tags</h4>
+							<div class="tags">
+								<a href="">Web Design</a>
+                                <a href="">Graphic Design</a>
+                                <a href="">PHP</a>
+                                 <a href="">Jquery</a>
+                                <a href="">Wordpress</a>
+                                <a href="">Animation</a>
+                                <a href="">Audio</a>
+                                <a href="">Photo Gallery</a>						
+							</div>
+						</div>
+						<!-- /Tags -->
+					</div>
+					<!-- /right Sidebar -->
+				</div> <!-- /row -->			
+			</div>		
+		</section>
+		<!-- /blog -->
+
+
+   <!--Start Footer-->
+   <footer>
+       <div class="container">
+           <div class="row">
+               <!--Start copyright-->
+               <div class="col-md-6 col-sm-6 col-xs-6">
+                   <div class="copyright"><p>Copyright © 2016 All Rights reserved by: <a href="http://templatestock.co">Template Stock</a>
+                 </p></div>
+               </div>
+               <!--End copyright-->
+               
+               <!--start social icons-->
+               <div class="col-md-6 col-sm-6 col-xs-6">
+                   <div class="social-icons">
+                       <ul>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                       </ul>
+                    </div>
+               </div>
+               <!--End social icons-->
+           </div> <!-- /.row-->
+       </div> <!-- /.container-->
+   </footer>
+   <!--End Footer-->
+
+   <a href="#" class="scrollup"> <i class="fa fa-chevron-up"> </i> </a>
+
+    <!--Plugins-->
+	<script type="text/javascript" src="{% static 'js/jquery-1.11.1.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js'%}"></script> 
+    <script type="text/javascript" src="{% static 'js/owl-carousel/owl.carousel.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.flexslider-min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.magnific-popup.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/easing.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.easypiechart.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.appear.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.parallax-1.1.3.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.mixitup.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/custom.js'%}"></script>
+    
+    
+ </body>
+</html>
+

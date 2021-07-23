@@ -1,0 +1,14 @@
+{%extends 'my_app/base.html'%}
+
+{%block content%}
+
+<div class="container" style="background-color:rgba(0,0,0,.9) ;margin-top:0px;">
+    <br><br><br><br><br><br><br>
+    <h1 style="color: seashell;">Sign Up</h1>
+    <form method="POST" style=" color:seashell">
+        {%csrf_token%}
+        {{form.as_p}}
+        <input type="submit" class='btn btn-default' style="margin-left:45%; color:seashell; background-color:rgba(0,0,0,.6);" value="Sing Up">
+    </form>
+</div>
+{%endblock%}
